@@ -10,7 +10,7 @@
 
 Если нет пакета для нужного дистрибутива или архитектуры, вы можете попробовать собрать пакет самостоятельно, используя скрипт `make_far2l_deb.sh`.
 
-По умолчанию far2l работает как GUI-приложение на wxWidgets. Также поддерживается работа в консоли, запускается по `far2lc`. Запускать в консоли просто как `far2l` или `far2l --tty` не следует, могут быть проблемы с монтированием gvfs.
+По умолчанию far2l работает как GUI-приложение на wxWidgets. Также поддерживается работа в консоли, запускается по `far2l --tty`. Если вы собираетесь использовать gvfs-плагин, для запуска следует использовать обёртку `far2lc`, в остальных случаях она не требуется.
 
 Консольная версия лучше всего работает во встроенном терминале wx-версии. Но и в xterm и его производных тоже можно пользоваться (правда, тогда не будет синхронизации буфера обмена и части горячих клавиш). Даже в putty можно, но тоже [с некоторыми ограничениями](https://github.com/elfmz/far2l/issues/472) (или можно использовать [специальную версию putty](https://github.com/unxed/putty4far2l)).
 
@@ -40,7 +40,7 @@ Package includes:
 
 If there is no package for your OS release or architecture, you may try to build package yourself using `make_far2l_deb.sh`.
 
-far2l defaults to run as GUI app based on wxWidgets toolkit. You can run `far2lс` to get console support; do not run `far2l` or `far2l --tty` in console directly to avoid gvfs mount problems.
+far2l defaults to run as GUI app based on wxWidgets toolkit. You can run `far2l --tty` to get console support; if you plan using gvfs plug-in, you should use `far2lc` shim instead to avoid gvfs mount problems.
 
 Console-based version works best inside internal terminal of wx-based version, but is still usable under xterm and its derivatives (but no clipboard sync and some hotkeys fail in this case). Usable under putty, but [some limitations](https://github.com/elfmz/far2l/issues/472) apply also (or you can use [special putty version](https://github.com/unxed/putty4far2l)).
 
