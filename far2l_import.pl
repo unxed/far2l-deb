@@ -16,7 +16,7 @@ while(<$fh>) {
 close $fh;
 
 # reset colors
-system("rm -rf /home/unxed/.config/far2l/REG/HKU/c/k-Software/k-Far2/k-Colors");
+system("rm -rf ~/.config/far2l/REG/HKU/c/k-Software/k-Far2/k-Colors");
 
 $param = '';
 foreach (@array) {
@@ -31,7 +31,7 @@ foreach (@array) {
         $group = substr( $group, 1, (length($group) - 2 ) );
         my @path = split /\\/, $group;
 
-        $path_str = "/home/unxed/.config/far2l/REG/";
+        $path_str = "~/.config/far2l/REG/";
 
         foreach (@path) {
             if ($_ eq 'HKEY_CURRENT_USER') {
