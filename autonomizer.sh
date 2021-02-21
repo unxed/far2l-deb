@@ -23,3 +23,5 @@ for file in ./**/* ; do
         ./patchelf --set-rpath $str $file
     fi
 done
+./patchelf --set-rpath "\$ORIGIN" ./lib/libarchive.so.13
+./patchelf --set-rpath "\$ORIGIN" ./lib/libxerces-c-3.1.so
