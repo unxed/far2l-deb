@@ -4,7 +4,7 @@ cd ~
 rm -rf far2l
 mkdir far2l
 cd far2l
-apt-get install wget gawk m4 libxerces-c-dev libuchardet-dev libssh-dev libssl-dev libnfs-dev libneon27-dev libarchive-dev libpcre3-dev cmake g++ git
+apt-get install -y wget gawk m4 libxerces-c-dev libuchardet-dev libssh-dev libssl-dev libnfs-dev libneon27-dev libarchive-dev libpcre3-dev cmake g++ git
 wget http://mirrors.kernel.org/ubuntu/pool/universe/s/spdlog/libspdlog-dev_1.6-1_amd64.deb
 sudo dpkg -i libspdlog-dev_1.6-1_amd64.deb
 wget https://launchpad.net/~flixr/+archive/ubuntu/backports/+files/patchelf_0.9-1~ubuntu14.04.1~ppa1_amd64.deb
