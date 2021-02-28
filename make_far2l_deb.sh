@@ -63,7 +63,7 @@ echo "[Desktop Entry]" > deb/far2l/usr/share/applications/far2l.desktop
 echo "Type=Application" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Name=far2l wx" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "GenericName=far2l wx" >> deb/far2l/usr/share/applications/far2l.desktop
-echo "Comment=File and archieve manager" >> deb/far2l/usr/share/applications/far2l.desktop
+echo "Comment=File and archive manager" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Exec=far2l" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Terminal=false" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Categories=Utility;FileManager;" >> deb/far2l/usr/share/applications/far2l.desktop
