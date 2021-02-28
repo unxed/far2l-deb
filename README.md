@@ -22,7 +22,7 @@ https://launchpad.net/~far2l-team/+archive/ubuntu/ppa
 
 P.S. far2l_2.2~ubuntu20.04_amd64_wx31.deb — специальная версия, собранная на Ubuntu 20.04 с wx 3.1 отсюда:
 https://wiki.codelite.org/pmwiki.php/Main/WxWidgets31Binaries
-В ней нормально работает быстрый поиск по клавише Alt с не латинскими символами. Предыдущая сборка с исправлением этой проблемы удалена, так как всё время падала.
+В ней нормально работает быстрый поиск по клавише Alt с не латинскими символами.
 
 ---
 
@@ -45,4 +45,5 @@ https://launchpad.net/~far2l-team/+archive/ubuntu/ppa may have more recent build
 
 P.S. far2l_2.2~ubuntu20.04_amd64_wx31.deb is a special version built on Ubuntu 20.04 with wx 3.1 from here:
 https://wiki.codelite.org/pmwiki.php/Main/WxWidgets31Binaries
-Quick search using Alt key with non-Latin characters works fine in it. Previous build with the fix for this problem has been removed as it crashed all the time.
+Quick search using Alt key with non-Latin characters works fine in it.
+
