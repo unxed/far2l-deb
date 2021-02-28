@@ -1,28 +1,21 @@
 #!/bin/bash
-sudo apt-get install git gawk m4 libpcre3-dev libwxgtk3.0-dev cmake g++ libgtkmm-3.0-dev uuid-dev libssl-dev sshfs gvfs-libs gvfs-backends gvfs-fuse libsecret-1-dev libssh-dev libsmbclient-dev libnfs-dev fakeroot libarchive-dev
-rm -rf far2l.deb
+sudo apt install -y libwxgtk3.0-dev
+sudo apt install -y libwxgtk3.0-gtk3-dev
+sudo apt-get install git cmake g++ gawk m4 libuchardet-dev libxerces-c-dev libspdlog-dev libpcre3-dev libarchive-dev libssl-dev libssh-dev libsmbclient-dev libnfs-dev libneon27-dev
+rm -rf far2l.deb far2l_`getconf LONG_BIT`.deb
 rm -rf far2l
 mkdir far2l
 cd far2l
 git clone https://github.com/elfmz/far2l
 cd far2l
-git clone https://github.com/cycleg/far-gvfs.git
-git clone https://github.com/unxed/far2l-fuse.git
 sed -i 's/\.smarty/\.tpl/g' colorer/configs/base/hrc/proto.hrc
 wget https://raw.githubusercontent.com/unxed/far2l-deb/master/smarty.hrc -O colorer/configs/base/hrc/inet/smarty.hrc
 cd ..
-echo "add_subdirectory (far-gvfs)" >> far2l/CMakeLists.txt
-echo "add_subdirectory (far2l-fuse)" >> far2l/CMakeLists.txt
+cd far2l
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Release ../far2l
-make
-cd ..
-mkdir deb
-mkdir deb/far2l
-mkdir deb/far2l/DEBIAN
-echo "Package: far2l" > deb/far2l/DEBIAN/control
-echo "Version: 2.2" >> deb/far2l/DEBIAN/control
+cmake -DUSEWX=yes -DLEGACY=yes -DCMAKE_BUILD_TYPE=Release ../far2l
+make -j$(nproc --all)
 MACHINE_TYPE=`uname -m`
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
     DEB_ARCH="amd64"
@@ -33,10 +26,23 @@ elif [ ${MACHINE_TYPE} == 'armv7l' ]; then
 else
     DEB_ARCH="i386"
 fi
-echo "Architecture: $DEB_ARCH" >> deb/far2l/DEBIAN/control
+rm -rf far2l/deb
+rm -f far2l_`getconf LONG_BIT`.deb
+cd far2l
+mkdir deb
+mkdir deb/far2l
+mkdir deb/far2l/DEBIAN
+echo "Package: far2l" > deb/far2l/DEBIAN/control
+echo "Version: 2.2" >> deb/far2l/DEBIAN/control
+MACHINE_TYPE=`uname -m`
+if [ ${MACHINE_TYPE} == 'x86_64' ]; then
+    echo "Architecture: amd64" >> deb/far2l/DEBIAN/control
+else
+    echo "Architecture: i386" >> deb/far2l/DEBIAN/control
+fi
 echo "Maintainer: root <root@localhost>" >> deb/far2l/DEBIAN/control
 echo "Priority: extra" >> deb/far2l/DEBIAN/control
-echo "Depends: libpcre3-dev, libwxgtk3.0-dev, libgtkmm-3.0-dev, uuid-dev, libssl-dev, libsecret-1-dev, sshfs, gvfs-libs, gvfs-backends, gvfs-fuse, libssh-dev, libsmbclient-dev, libnfs-dev, libarchive-dev" >> deb/far2l/DEBIAN/control
+echo "Depends: libwxgtk3.0-dev | libwxgtk3.0-gtk3-dev, libuchardet-dev, libpcre3-dev, libarchive-dev, libxerces-c-dev, libspdlog-dev, libssl-dev, libssh-dev, libsmbclient-dev, libnfs-dev, libneon27-dev" >> deb/far2l/DEBIAN/control
 echo "Description: Linux port of FAR v2" >> deb/far2l/DEBIAN/control
 echo " https://github.com/elfmz/far2l" >> deb/far2l/DEBIAN/control
 echo " ." >> deb/far2l/DEBIAN/control
@@ -57,21 +63,12 @@ echo "[Desktop Entry]" > deb/far2l/usr/share/applications/far2l.desktop
 echo "Type=Application" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Name=far2l wx" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "GenericName=far2l wx" >> deb/far2l/usr/share/applications/far2l.desktop
-echo "Comment=File and archive manager" >> deb/far2l/usr/share/applications/far2l.desktop
+echo "Comment=File and archieve manager" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Exec=far2l" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Terminal=false" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Categories=Utility;FileManager;" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "Icon=far2l.svg" >> deb/far2l/usr/share/applications/far2l.desktop
 echo "StartupNotify=true" >> deb/far2l/usr/share/applications/far2l.desktop
-#echo "[Desktop Entry]" > deb/far2l/usr/share/applications/far2lс.desktop
-#echo "Type=Application" >> deb/far2l/usr/share/applications/far2lс.desktop
-#echo "Name=far2l tty" >> deb/far2l/usr/share/applications/far2lс.desktop
-#echo "GenericName=far2l tty" >> deb/far2l/usr/share/applications/far2lс.desktop
-#echo "Comment=File and archive manager" >> deb/far2l/usr/share/applications/far2lс.desktop
-#echo "Exec=far2l --tty" >> deb/far2l/usr/share/applications/far2lс.desktop
-#echo "Terminal=true" >> deb/far2l/usr/share/applications/far2lс.desktop
-#echo "Categories=Utility;FileManager;" >> deb/far2l/usr/share/applications/far2lс.desktop
-#echo "Icon=far2l.svg" >> deb/far2l/usr/share/applications/far2lс.desktop
 mkdir deb/far2l/usr/share
 mkdir deb/far2l/usr/share/icons
 mkdir deb/far2l/usr/share/icons/hicolor
@@ -83,13 +80,11 @@ mkdir deb/far2l/usr/lib/far2l
 cp -R build/install/* deb/far2l/usr/lib/far2l/
 cd deb/far2l/usr/bin/
 ln -s ../lib/far2l/far2l far2l
-wget https://raw.githubusercontent.com/unxed/far2l-deb/master/far2lc.sh
-mv far2lc.sh far2lc
-chmod +x far2lc
 cd ../../..
 fakeroot dpkg-deb --build far2l
 cp far2l.deb ../..
 cd ../..
-rm -rf far2l
+#rm -rf far2l
+rm -rf far2l/deb
 rm -rf far2l_${DEB_ARCH}.deb
 mv far2l.deb far2l_${DEB_ARCH}.deb
