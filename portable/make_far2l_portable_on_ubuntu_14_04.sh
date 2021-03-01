@@ -20,7 +20,7 @@ sudo apt-get install -y cmake
 cmake -DUSEWX=no -DLEGACY=no -DCMAKE_BUILD_TYPE=Release ..
 make -j$(nproc --all)
 cd install
-wget https://github.com/unxed/far2l-deb/raw/master/autonomizer.sh
+wget https://github.com/unxed/far2l-deb/raw/master/portable/autonomizer.sh
 chmod +x autonomizer.sh
 ./autonomizer.sh
 rm lib/libc.so.6

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Helper script for far-gvfs
+
 # Search processes for the session variable 
 PID=$(pgrep -nU $USER gvfsd)
 if [[ "${PID}" == "" ]]; then

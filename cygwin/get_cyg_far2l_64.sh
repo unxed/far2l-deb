@@ -2,7 +2,7 @@
 mkdir /opt
 cd /opt
 rm -rf far2l
-wget https://github.com/unxed/far2l-deb/raw/master/far2l_cyg_64.tgz
+wget https://github.com/unxed/far2l-deb/raw/master/cygwin/far2l_cyg_64.tgz
 tar -xzf far2l_cyg_64.tgz
 rm -rf far2l_cyg_64.tgz
 echo "#!/bin/bash" > /bin/far2l
