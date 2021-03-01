@@ -12,7 +12,6 @@ cd far2l
 sed -i 's/\.smarty/\.tpl/g' colorer/configs/base/hrc/proto.hrc
 wget https://raw.githubusercontent.com/unxed/far2l-deb/master/misc/smarty.hrc -O colorer/configs/base/hrc/inet/smarty.hrc
 cd ..
-cd far2l
 mkdir build
 cd build
 cmake -DUSEWX=yes -DLEGACY=yes -DCMAKE_BUILD_TYPE=Release ../far2l
