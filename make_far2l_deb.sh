@@ -17,11 +17,9 @@ mkdir build
 cd build
 cmake -DUSEWX=yes -DLEGACY=yes -DCMAKE_BUILD_TYPE=Release ../far2l
 make -j$(nproc --all)
-##### step 3
-rm -rf far2l/deb
-rm -f far2l_`getconf LONG_BIT`.deb
-##### (replace ".." with "far2l" if running step 3 as separate script)
+##### step 3 (replace ".." with "far2l" if running step 3 as separate script)
 cd ..
+rm -rf deb
 mkdir deb
 mkdir deb/far2l
 mkdir deb/far2l/DEBIAN
