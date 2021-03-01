@@ -1,0 +1,16 @@
+sudo apt install lxc
+# select "ubuntu", "trusty", "amd64"
+sudo lxc-create -t download -n my-container
+sudo lxc-start -n my-container -d
+sudo lxc-attach -n my-container
+# following is done inside container
+sudo apt install -y wget
+wget https://github.com/unxed/far2l-deb/raw/master/portable/make_far2l_portable_on_ubuntu_14_04.sh
+chmod +x make_far2l_portable_on_ubuntu_14_04.sh
+./make_far2l_portable_on_ubuntu_14_04.sh
+exit
+# following is done outside container
+sudo chmod +r -R /var/lib/lxc/my-container
+sudo cp /var/lib/lxc/my-container/rootfs/home/$LOGNAME/far2l/far2l/build/far2l_portable.run ~
+sudo lxc-stop -n my-container
+sudo lxc-destroy -n my-container
