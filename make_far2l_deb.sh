@@ -36,13 +36,18 @@ mkdir deb
 mkdir deb/far2l
 mkdir deb/far2l/DEBIAN
 echo "Package: far2l" > deb/far2l/DEBIAN/control
-echo "Version: 2.3" >> deb/far2l/DEBIAN/control
+echo "Version: 2.2" >> deb/far2l/DEBIAN/control
 MACHINE_TYPE=`uname -m`
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
-    echo "Architecture: amd64" >> deb/far2l/DEBIAN/control
+    DEB_ARCH="amd64"
+elif [ ${MACHINE_TYPE} == 'aarch64' ]; then
+    DEB_ARCH="arm64"
+elif [ ${MACHINE_TYPE} == 'armv7l' ]; then
+    DEB_ARCH="armhf"
 else
-    echo "Architecture: i386" >> deb/far2l/DEBIAN/control
+    DEB_ARCH="i386"
 fi
+echo "Architecture: $DEB_ARCH" >> deb/far2l/DEBIAN/control
 echo "Maintainer: root <root@localhost>" >> deb/far2l/DEBIAN/control
 echo "Priority: extra" >> deb/far2l/DEBIAN/control
 echo "Depends: libwxgtk3.0-dev | libwxgtk3.0-gtk3-dev, libuchardet-dev, libpcre3-dev, libarchive-dev, libxerces-c-dev, libspdlog-dev, libssl-dev, libssh-dev, libsmbclient-dev, libnfs-dev, libneon27-dev" >> deb/far2l/DEBIAN/control
