@@ -25,9 +25,13 @@ https://wiki.codelite.org/pmwiki.php/Main/WxWidgets31Binaries
 В ней нормально работает быстрый поиск по клавише Alt с не латинскими символами.
 
 P.P.S. Что ещё тут есть интересного?
+
 cygwin — предсобранные бинарные сборки far2l для cygwin с инструкцией, как установить
+
 misc — всякие вспомогательные скрипты, большей частью устаревшие, и мелкий фикс для colorera
+
 portable — tty-версия far2l, собранная со всеми библиотеками в один исполняемый файл, пригодится на shared хостингах
+
 themes — темы оформления интерфейса far2l
 
 ---
@@ -54,7 +58,11 @@ https://wiki.codelite.org/pmwiki.php/Main/WxWidgets31Binaries
 Quick search using Alt key with non-Latin characters works fine in it.
 
 P.P.S. What else interesting is there?
+
 cygwin - prebuilt binaries of far2l for cygwin with instructions (russian only) on how to install
+
 misc - all sorts of auxiliary scripts, mostly outdated, and a minor fix for colorer
+
 portable - the tty version of far2l, packaged with all the libraries into one executable file, useful on shared hosting
+
 themes - themes for far2l UI
