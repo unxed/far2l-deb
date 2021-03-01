@@ -22,7 +22,7 @@ https://launchpad.net/~far2l-team/+archive/ubuntu/ppa
 
 P.S. far2l_2.2~ubuntu20.04_amd64_wx31.deb — специальная версия, собранная на Ubuntu 20.04 с wx 3.1 отсюда:
 https://wiki.codelite.org/pmwiki.php/Main/WxWidgets31Binaries
-В ней нормально работает быстрый поиск по клавише Alt с не латинскими символами.
+В ней нормально работает быстрый поиск по клавише Alt с не латинскими символами. А ещё в ней присутствует патч, благодаря которому поиск по Alt+букве работает даже при неправильной раскладке: https://github.com/unxed/far2l/commit/1c6e7df5cb15dc5468f14211e89ec636d094f19b Настраивается через kblayouts.ini в папке установки far2l 
 
 P.P.S. Что ещё тут есть интересного?
 
@@ -55,7 +55,7 @@ https://launchpad.net/~far2l-team/+archive/ubuntu/ppa may have more recent build
 
 P.S. far2l_2.2~ubuntu20.04_amd64_wx31.deb is a special version built on Ubuntu 20.04 with wx 3.1 from here:
 https://wiki.codelite.org/pmwiki.php/Main/WxWidgets31Binaries
-Quick search using Alt key with non-Latin characters works fine in it.
+Quick search using Alt key with non-Latin characters works fine in it. And there is also a patch in it, thanks to which search by Alt+letter works even with the wrong keyboard layout: https://github.com/unxed/far2l/commit/1c6e7df5cb15dc5468f14211e89ec636d094f19b Configurable via kblayouts.ini in far2l install folder
 
 P.P.S. What else interesting is there?
 
