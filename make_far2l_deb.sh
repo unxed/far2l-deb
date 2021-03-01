@@ -12,11 +12,12 @@ cd far2l
 sed -i 's/\.smarty/\.tpl/g' colorer/configs/base/hrc/proto.hrc
 wget https://raw.githubusercontent.com/unxed/far2l-deb/master/misc/smarty.hrc -O colorer/configs/base/hrc/inet/smarty.hrc
 cd ..
+##### step 2 (add "cd far2l" below if running step 2 as separate script)
 mkdir build
 cd build
 cmake -DUSEWX=yes -DLEGACY=yes -DCMAKE_BUILD_TYPE=Release ../far2l
 make -j$(nproc --all)
-cd ..
+##### step 3
 MACHINE_TYPE=`uname -m`
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
     DEB_ARCH="amd64"
@@ -29,6 +30,8 @@ else
 fi
 rm -rf far2l/deb
 rm -f far2l_`getconf LONG_BIT`.deb
+##### (replace ".." with "far2l" if running step 3 as separate script)
+cd ..
 mkdir deb
 mkdir deb/far2l
 mkdir deb/far2l/DEBIAN
