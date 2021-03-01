@@ -11,6 +11,6 @@ chmod +x make_far2l_portable_on_ubuntu_14_04.sh
 exit
 # following is done outside container
 sudo chmod +r -R /var/lib/lxc/my-container
-sudo cp /var/lib/lxc/my-container/rootfs/home/$LOGNAME/far2l/far2l/build/far2l_portable.run ~
+cp /var/lib/lxc/my-container/rootfs/home/$LOGNAME/far2l/far2l/build/far2l_portable.run ~
 sudo lxc-stop -n my-container
 sudo lxc-destroy -n my-container
