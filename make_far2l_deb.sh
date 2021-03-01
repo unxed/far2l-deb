@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt install -y libwxgtk3.0-dev
 sudo apt install -y libwxgtk3.0-gtk3-dev
-sudo apt install -y libneon27-dev
+#sudo apt install -y libneon27-dev
 sudo apt-get install -y git cmake g++ gawk m4 libuchardet-dev libxerces-c-dev libspdlog-dev libpcre3-dev libarchive-dev libssl-dev libssh-dev libsmbclient-dev libnfs-dev
 rm -rf far2l.deb far2l_`getconf LONG_BIT`.deb
 rm -rf far2l
