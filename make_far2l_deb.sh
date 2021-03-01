@@ -33,7 +33,7 @@ mkdir deb
 mkdir deb/far2l
 mkdir deb/far2l/DEBIAN
 echo "Package: far2l" > deb/far2l/DEBIAN/control
-echo "Version: 2.2" >> deb/far2l/DEBIAN/control
+echo "Version: 2.3" >> deb/far2l/DEBIAN/control
 MACHINE_TYPE=`uname -m`
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
     echo "Architecture: amd64" >> deb/far2l/DEBIAN/control
