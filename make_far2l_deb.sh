@@ -16,6 +16,7 @@ mkdir build
 cd build
 cmake -DUSEWX=yes -DLEGACY=yes -DCMAKE_BUILD_TYPE=Release ../far2l
 make -j$(nproc --all)
+cd ..
 MACHINE_TYPE=`uname -m`
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
     DEB_ARCH="amd64"
@@ -28,7 +29,6 @@ else
 fi
 rm -rf far2l/deb
 rm -f far2l_`getconf LONG_BIT`.deb
-cd far2l
 mkdir deb
 mkdir deb/far2l
 mkdir deb/far2l/DEBIAN
