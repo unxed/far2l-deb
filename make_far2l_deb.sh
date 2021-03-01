@@ -18,16 +18,6 @@ cd build
 cmake -DUSEWX=yes -DLEGACY=yes -DCMAKE_BUILD_TYPE=Release ../far2l
 make -j$(nproc --all)
 ##### step 3
-MACHINE_TYPE=`uname -m`
-if [ ${MACHINE_TYPE} == 'x86_64' ]; then
-    DEB_ARCH="amd64"
-elif [ ${MACHINE_TYPE} == 'aarch64' ]; then
-    DEB_ARCH="arm64"
-elif [ ${MACHINE_TYPE} == 'armv7l' ]; then
-    DEB_ARCH="armhf"
-else
-    DEB_ARCH="i386"
-fi
 rm -rf far2l/deb
 rm -f far2l_`getconf LONG_BIT`.deb
 ##### (replace ".." with "far2l" if running step 3 as separate script)
