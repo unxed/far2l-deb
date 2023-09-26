@@ -1,0 +1,5 @@
+
+Deprecated.
+Use
+https://github.com/spvkgn/far2l-portable
+instead.
