@@ -13,6 +13,10 @@ git clone https://github.com/elfmz/far2l
 ##### step 2 (add "cd far2l" below if running step 2 as separate script)
 mkdir build
 cd build
+#
+rm -rf CMakeCache.txt
+rm -rf install/Plugins/NetRocks
+#
 cmake -DUSEWX=yes -DLEGACY=yes -DCMAKE_BUILD_TYPE=Release ../far2l
 make -j$(nproc --all)
 ##### step 3 (replace ".." with "far2l" if running step 3 as separate script)
